@@ -7,7 +7,7 @@
      aria-hidden="true">
     <div class="modal-header">
         <h3 id="addContactsModalLabel" class="displayInLine">
-            <spring:message code="create"/>&nbsp;<spring:message code="contact"/>
+            Novo contato
         </h3>
     </div>
     <div class="modal-body">
@@ -15,7 +15,7 @@
             <div class="pull-left">
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="contacts.name"/>:</label>
+                        <label>* Nome:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
@@ -23,53 +23,53 @@
                                autofocus
                                ng-model="contact.name"
                                name="name"
-                               placeholder="<spring:message code='contact'/>&nbsp;<spring:message code='contacts.name'/>"/>
+                               placeholder="Nome do contato"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && newContactForm.name.$error.required">
-                                        <spring:message code="required"/>
+                                        Campo obrigatório
                                 </span>
                         </label>
                     </div>
                 </div>
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="contacts.email"/>:</label>
+                        <label>* E-mail:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                required
                                ng-model="contact.email"
                                name="email"
-                               placeholder="<spring:message code='sample.email'/> "/>
+                               placeholder="contato@email.com"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && newContactForm.email.$error.required">
-                                    <spring:message code="required"/>
+                                    Campo obrigatório
                                 </span>
                         </label>
                     </div>
                 </div>
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="contacts.phone"/>:</label>
+                        <label>* Telefone:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                required
                                ng-model="contact.phoneNumber"
                                name="phoneNumber"
-                               placeholder="<spring:message code='sample.phone'/> "/>
+                               placeholder="9999-9999"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && newContactForm.phoneNumber.$error.required">
-                                    <spring:message code="required"/>
+                                    Campo obrigatório
                                 </span>
                         </label>
                     </div>
@@ -77,12 +77,12 @@
                 <input type="submit"
                        class="btn btn-inverse"
                        ng-click="createContact(newContactForm);"
-                       value='<spring:message code="create"/>'/>
+                       value='OK'/>
                 <button class="btn btn-inverse"
                         data-dismiss="modal"
                         ng-click="exit('#addContactsModal');"
                         aria-hidden="true">
-                    <spring:message code="cancel"/>
+                    Cancelar
                 </button>
             </div>
         </form>
@@ -100,7 +100,7 @@
      aria-hidden="true">
     <div class="modal-header">
         <h3 id="updateContactsModalLabel" class="displayInLine">
-            <spring:message code="update"/>&nbsp;<spring:message code="contact"/>
+            Atualizar contato
         </h3>
     </div>
     <div class="modal-body">
@@ -114,41 +114,39 @@
             <div class="pull-left">
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="contacts.name"/>:</label>
+                        <label>* Nome:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                autofocus
                                required
                                ng-model="contact.name"
-                               name="name"
-                               placeholder="<spring:message code='contact'/>&nbsp;<spring:message code='contacts.name'/> "/>
+                               name="name"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && updateContactForm.name.$error.required">
-                                    <spring:message code="required"/>
+                                    Campo obrigatório
                                 </span>
                         </label>
                     </div>
                 </div>
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="contacts.email"/>:</label>
+                        <label>* E-mail:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                required
                                ng-model="contact.email"
-                               name="email"
-                               placeholder="<spring:message code='sample.email'/> "/>
+                               name="email"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && updateContactForm.email.$error.required">
-                                    <spring:message code="required"/>
+                                    Campo obrigatório
                                 </span>
                         </label>
                     </div>
@@ -161,14 +159,13 @@
                         <input type="text"
                                required
                                ng-model="contact.phoneNumber"
-                               name="phoneNumber"
-                               placeholder="<spring:message code='sample.phone'/> "/>
+                               name="phoneNumber"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && updateContactForm.phoneNumber.$error.required">
-                                    <spring:message code="required"/>
+                                    Campo obrigatório
                                 </span>
                         </label>
                     </div>
@@ -176,12 +173,12 @@
                 <input type="submit"
                        class="btn btn-inverse"
                        ng-click="updateContact(updateContactForm);"
-                       value='<spring:message code="update"/>'/>
+                       value='OK'/>
                 <button class="btn btn-inverse"
                         data-dismiss="modal"
                         ng-click="exit('#updateContactsModal');"
                         aria-hidden="true">
-                    <spring:message code="cancel"/></button>
+                    Cancelar</button>
             </div>
         </form>
     </div>
@@ -198,22 +195,22 @@
      aria-hidden="true">
     <div class="modal-header">
         <h3 id="deleteContactsModalLabel" class="displayInLine">
-            <spring:message code="delete"/>&nbsp;<spring:message code="contact"/>
+            Excluir contato
         </h3>
     </div>
     <div class="modal-body">
         <form name="deleteContactForm" novalidate>
-            <p><spring:message code="delete.confirm"/>:&nbsp;{{contact.name}}?</p>
+            <p>Deseja apagar&nbsp;{{contact.name}}?</p>
 
             <input type="submit"
                    class="btn btn-inverse"
                    ng-click="deleteContact();"
-                   value='<spring:message code="delete"/>'/>
+                   value='Sim'/>
             <button class="btn btn-inverse"
                     data-dismiss="modal"
                     ng-click="exit('#deleteContactsModal');"
                     aria-hidden="true">
-                <spring:message code="cancel"/>
+                Não
             </button>
         </form>
     </div>
@@ -234,12 +231,12 @@
      aria-hidden="true">
     <div class="modal-header">
         <h3 id="searchContactsModalLabel" class="displayInLine">
-            <spring:message code="search"/>
+            Pesquisar
         </h3>
     </div>
     <div class="modal-body">
         <form name="searchContactForm" novalidate>
-            <label><spring:message code="search.for"/></label>
+            <label>Pesquisar por</label>
 
             <div>
                 <div class="input-append">
@@ -248,13 +245,13 @@
                            required
                            ng-model="searchFor"
                            name="searchFor"
-                           placeholder="<spring:message code='contact'/>&nbsp;<spring:message code='contacts.name'/> "/>
+                           placeholder="Nome do contato"/>
                 </div>
                 <div class="input-append displayInLine">
                     <label class="displayInLine">
                         <span class="alert alert-error"
                               ng-show="displayValidationError && searchContactForm.searchFor.$error.required">
-                            <spring:message code="required"/>
+                            Campo obrigatório
                         </span>
                     </label>
                 </div>
@@ -262,13 +259,13 @@
             <input type="submit"
                    class="btn btn-inverse"
                    ng-click="searchContact(searchContactForm, false);"
-                   value='<spring:message code="search"/>'
+                   value='OK'
                     />
             <button class="btn btn-inverse"
                     data-dismiss="modal"
                     ng-click="exit('#searchContactsModal');"
                     aria-hidden="true">
-                <spring:message code="cancel"/>
+                Cancelar
             </button>
         </form>
     </div>

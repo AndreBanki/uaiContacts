@@ -4,26 +4,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row-fluid" ng-controller="contactsController">
     <h2>
-        <p class="text-center">
-            <spring:message code='contacts.header'/>
+        <p class="text-right">
             <a href="#searchContactsModal"
                id="contactsHeaderButton"
                role="button"
                ng-class="{'': displaySearchButton == true, 'none': displaySearchButton == false}"
-               title="<spring:message code="search"/>&nbsp;<spring:message code="contact"/>"
-               class="btn btn-inverse" data-toggle="modal">
-                <i class="icon-search"></i>
+               class="btn btn-primary" data-toggle="modal">
+                <i class="icon-search"></i>&nbsp;Pesquisar
             </a>
         </p>
     </h2>
-    <h4>
-        <div ng-class="{'': state == 'list', 'none': state != 'list'}">
-            <p class="text-center">
-                <spring:message code="message.total.records.found"/>:&nbsp;{{page.totalContacts}}
-            </p>
-        </div>
-    </h4>
-
     <div>
         <div id="loadingModal" class="modal hide fade in centering"
              role="dialog"
@@ -41,8 +31,7 @@
                role="button"
                ng-click="resetSearch();"
                ng-class="{'': displaySearchMessage == true, 'none': displaySearchMessage == false}"
-               title="<spring:message code='search.reset'/>"
-               class="btn btn-inverse" data-toggle="modal">
+               class="btn btn-primary" data-toggle="modal">
                 <i class="icon-remove"></i> <spring:message code="search.reset"/>
             </a>
         </div>
@@ -69,9 +58,9 @@
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th scope="col"><spring:message code="contacts.name"/></th>
-                    <th scope="col"><spring:message code="contacts.email"/></th>
-                    <th scope="col"><spring:message code="contacts.phone"/></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Telefone</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -86,15 +75,13 @@
                             <a href="#updateContactsModal"
                                ng-click="selectedContact(contact);"
                                role="button"
-                               title="<spring:message code="update"/>&nbsp;<spring:message code="contact"/>"
-                               class="btn btn-inverse" data-toggle="modal">
+                               class="btn btn-primary" data-toggle="modal">
                                 <i class="icon-pencil"></i>
                             </a>
                             <a href="#deleteContactsModal"
                                ng-click="selectedContact(contact);"
                                role="button"
-                               title="<spring:message code="delete"/>&nbsp;<spring:message code="contact"/>"
-                               class="btn btn-inverse" data-toggle="modal">
+                               class="btn btn-primary" data-toggle="modal">
                                 <i class="icon-minus"></i>
                             </a>
                         </div>
@@ -104,36 +91,32 @@
             </table>
 
             <div class="text-center">
-                <button href="#" class="btn btn-inverse"
-                        ng-class="{'btn-inverse': page.currentPage != 0, 'disabled': page.currentPage == 0}"
+                <button href="#" class="btn btn-primary"
+                        ng-class="{'btn-primary': page.currentPage != 0, 'disabled': page.currentPage == 0}"
                         ng-disabled="page.currentPage == 0" ng-click="changePage(0)"
-                        title='<spring:message code="pagination.first"/>'
                         >
-                    <spring:message code="pagination.first"/>
+                    Primeiro
                 </button>
                 <button href="#"
-                        class="btn btn-inverse"
-                        ng-class="{'btn-inverse': page.currentPage != 0, 'disabled': page.currentPage == 0}"
-                        ng-disabled="page.currentPage == 0" class="btn btn-inverse"
+                        class="btn btn-primary"
+                        ng-class="{'btn-primary': page.currentPage != 0, 'disabled': page.currentPage == 0}"
+                        ng-disabled="page.currentPage == 0" class="btn btn-primary"
                         ng-click="changePage(page.currentPage - 1)"
-                        title='<spring:message code="pagination.back"/>'
                         >&lt;</button>
-                <span>{{page.currentPage + 1}} <spring:message code="pagination.of"/> {{page.pagesCount}}</span>
+                <span>Página {{page.currentPage + 1}} de {{page.pagesCount}}</span>
                 <button href="#"
-                        class="btn btn-inverse"
-                        ng-class="{'btn-inverse': page.pagesCount - 1 != page.currentPage, 'disabled': page.pagesCount - 1 == page.currentPage}"
+                        class="btn btn-primary"
+                        ng-class="{'btn-primary': page.pagesCount - 1 != page.currentPage, 'disabled': page.pagesCount - 1 == page.currentPage}"
                         ng-click="changePage(page.currentPage + 1)"
                         ng-disabled="page.pagesCount - 1 == page.currentPage"
-                        title='<spring:message code="pagination.next"/>'
                         >&gt;</button>
                 <button href="#"
-                        class="btn btn-inverse"
-                        ng-class="{'btn-inverse': page.pagesCount - 1 != page.currentPage, 'disabled': page.pagesCount - 1 == page.currentPage}"
+                        class="btn btn-primary"
+                        ng-class="{'btn-primary': page.pagesCount - 1 != page.currentPage, 'disabled': page.pagesCount - 1 == page.currentPage}"
                         ng-disabled="page.pagesCount - 1 == page.currentPage"
                         ng-click="changePage(page.pagesCount - 1)"
-                        title='<spring:message code="pagination.last"/>'
                         >
-                    <spring:message code="pagination.last"/>
+                    Último
                 </button>
             </div>
         </div>
@@ -143,10 +126,10 @@
                role="button"
                ng-click="resetContact();"
                title="<spring:message code='create'/>&nbsp;<spring:message code='contact'/>"
-               class="btn btn-inverse"
+               class="btn btn-primary"
                data-toggle="modal">
                 <i class="icon-plus"></i>
-                &nbsp;&nbsp;<spring:message code="create"/>&nbsp;<spring:message code="contact"/>
+                &nbsp;&nbsp;Adicionar
             </a>
         </div>
 

@@ -3,20 +3,20 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="row-fluid">
     <div class="jumbotron">
-        <h1><spring:message code='project.name'/></h1>
+        <h1>Cadastro de Contatos</h1>
     </div>
 </div>
 <div class="row-fluid">
     <div class="span4 offset4 well" ng-controller="loginController">
-        <legend><spring:message code="login.header" /></legend>
+        <legend>Bem-vindo</legend>
         <div class="alert alert-error" ng-class="{'': displayLoginError == true, 'none': displayLoginError == false}">
-            <spring:message code="login.error" />
+            Usuário ou senha incorretos
         </div>
         <form method="post" action="j_spring_security_check">
             <div>
-                <input name="j_username" id="j_username" type="text" class="span12" placeholder="<spring:message code='sample.email' /> "><br/>
-                <input name="j_password" id="j_password" type="password"  class="span12" placeholder="Password"><br/>
-                <button type="submit" name="submit" class="btn btn-inverse btn-block"><spring:message code="login.signIn" /></button>
+                <input name="j_username" id="j_username" type="text" class="span12" placeholder="Informe o e-mail"><br/>
+                <input name="j_password" id="j_password" type="password"  class="span12" placeholder="Senha"><br/>
+                <button type="submit" name="submit" class="btn btn-inverse btn-block">Sign in</button>
             </div>
         </form>
     </div>
