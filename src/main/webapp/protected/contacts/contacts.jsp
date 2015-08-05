@@ -10,7 +10,7 @@
                role="button"
                ng-class="{'': displaySearchButton == true, 'none': displaySearchButton == false}"
                class="btn btn-primary" data-toggle="modal">
-                <i class="icon-search"></i>&nbsp;Pesquisar
+                <i class="icon-search"></i>&nbsp;Filtrar
             </a>
         </p>
     </h2>
@@ -23,20 +23,19 @@
             </div>
         </div>
 
-        <div ng-class="{'alert badge-inverse': displaySearchMessage == true, 'none': displaySearchMessage == false}">
-            <h4>
-                <p class="messageToUser"><i class="icon-info-sign"></i>&nbsp;{{page.searchMessage}}</p>
-            </h4>
+        <div class="alert badge-inverse" ng-show="displaySearchMessage">
+            <p class="messageToUser"><i class="icon-info-sign"></i>&nbsp;{{page.searchMessage}}</p>
+            <p class="text-right">
             <a href="#"
                role="button"
                ng-click="resetSearch();"
-               ng-class="{'': displaySearchMessage == true, 'none': displaySearchMessage == false}"
                class="btn btn-primary" data-toggle="modal">
-                <i class="icon-remove"></i> <spring:message code="search.reset"/>
+                <i class="icon-remove"></i> Limpar filtro
             </a>
+          </p>
         </div>
 
-        <div ng-class="{'alert badge-inverse': displayMessageToUser == true, 'none': displayMessageToUser == false}">
+        <div class="alert badge-inverse" ng-show="displayMessageToUser">
             <h4 class="displayInLine">
                 <p class="messageToUser displayInLine"><i class="icon-info-sign"></i>&nbsp;{{page.actionMessage}}</p>
             </h4>
