@@ -136,5 +136,6 @@
 
     </div>
 </div>
+<div my-dom-directive>Click me!!</div>
 
 <script src="<c:url value="/resources/js/pages/contacts.js" />"></script>
