@@ -8,7 +8,7 @@
             <a href="#searchContactsModal"
                id="contactsHeaderButton"
                role="button"
-               ng-class="{'': displaySearchButton == true, 'none': displaySearchButton == false}"
+               ng-show="displaySearchButton"
                class="btn btn-primary" data-toggle="modal">
                 <i class="icon-search"></i>&nbsp;Filtrar
             </a>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="alert badge-inverse" ng-show="displaySearchMessage">
-            <p class="messageToUser"><i class="icon-info-sign"></i>&nbsp;{{page.searchMessage}}</p>
+            <p class="messageToUser"><i class="icon-info-sign"></i>&nbsp;Mostrando resultados filtrados por: {{searchFor}}</p>
             <p class="text-right">
             <a href="#"
                role="button"
@@ -47,13 +47,13 @@
             <p><spring:message code="error.generic.text"/></p>
         </div>
 
-        <div ng-class="{'alert alert-info': state == 'noresult', 'none': state != 'noresult'}">
-            <h4><i class="icon-info-sign"></i> <spring:message code="contacts.emptyData"/></h4><br/>
+        <div class="alert alert-info" ng-show="state == 'noresult'">
+            <h4><i class="icon-info-sign"></i> Nenhum contato encontrado</h4><br/>
 
-            <p><spring:message code="contacts.emptyData.text"/></p>
+            <p>Utilize o botão Adicionar para criar um contato.</p>
         </div>
 
-        <div id="gridContainer" ng-class="{'': state == 'list', 'none': state != 'list'}">
+        <div id="gridContainer" ng-show="state == 'list'">
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -119,7 +119,7 @@
                 </button>
             </div>
         </div>
-        <div ng-class="{'text-center': displayCreateContactButton == true, 'none': displayCreateContactButton == false}">
+        <div class="text-center" ng-show="displayCreateContactButton">
             <br/>
             <a href="#addContactsModal"
                role="button"
