@@ -14,7 +14,7 @@
 
             <input type="submit"
                    class="btn btn-inverse"
-                   ng-click="delete();"
+                   ng-click="deleteEntity();"
                    value='Sim'/>
             <button class="btn btn-inverse"
                     data-dismiss="modal"

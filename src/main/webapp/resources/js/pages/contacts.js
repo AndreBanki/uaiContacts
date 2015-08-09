@@ -221,7 +221,7 @@ function contactsController($scope, $http) {
             });
     };
 
-    $scope.delete = function () {
+    $scope.deleteEntity = function () {
         $scope.lastAction = 'delete';
 
         var url = $scope.url + $scope.contact.id;
