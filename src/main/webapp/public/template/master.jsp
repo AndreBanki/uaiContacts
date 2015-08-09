@@ -11,7 +11,7 @@
         <script src="<c:url value='/resources/js/jquery-1.9.1.min.js' />"></script>
         <script src="<c:url value='/resources/js/angular.min.js' />"></script>
 
-        <script src="<c:url value="/resources/js/pages/utils.js" />"></script>
+        <script src="<c:url value="/resources/js/templates/utils.js" />"></script>
     </head>
     <body>
         <div class="container">
