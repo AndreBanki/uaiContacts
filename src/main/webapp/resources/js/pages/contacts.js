@@ -73,7 +73,7 @@ function contactsController($scope, $http) {
         $scope.pageToGet = page;
 
         if($scope.searchFor){
-            $scope.searchContact($scope.searchFor, true);
+            $scope.search($scope.searchFor, true);
         } else{
             $scope.getContactList();
         }
@@ -134,7 +134,7 @@ function contactsController($scope, $http) {
         }
     }
 
-    $scope.resetContact = function(){
+    $scope.resetEdition = function(){
         $scope.contact = {};
     };
 
@@ -193,7 +193,7 @@ function contactsController($scope, $http) {
             });
     };
 
-    $scope.searchContact = function (searchContactForm, isPagination) {
+    $scope.search = function (searchContactForm, isPagination) {
         if (!($scope.searchFor) && (!searchContactForm.$valid)) {
             $scope.displayValidationError = true;
             return;
@@ -221,7 +221,7 @@ function contactsController($scope, $http) {
             });
     };
 
-    $scope.deleteContact = function () {
+    $scope.delete = function () {
         $scope.lastAction = 'delete';
 
         var url = $scope.url + $scope.contact.id;
@@ -235,7 +235,7 @@ function contactsController($scope, $http) {
             url: url,
             params: params
         }).success(function (data) {
-                $scope.resetContact();
+                $scope.resetEdition();
                 $scope.finishAjaxCallOnSuccess(data, "#deleteModal", false);
             }).error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);

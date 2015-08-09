@@ -73,7 +73,7 @@ function departmentsController($scope, $http) {
         $scope.pageToGet = page;
 
         if($scope.searchFor){
-            $scope.searchDepartment($scope.searchFor, true);
+            $scope.search($scope.searchFor, true);
         } else{
             $scope.getDepartmentList();
         }
@@ -134,7 +134,7 @@ function departmentsController($scope, $http) {
         }
     }
 
-    $scope.resetDepartment = function(){
+    $scope.resetEdition = function(){
         $scope.department = {};
     };
 
@@ -193,7 +193,7 @@ function departmentsController($scope, $http) {
             });
     };
 
-    $scope.searchDepartment = function (searchDepartmentForm, isPagination) {
+    $scope.search = function (searchDepartmentForm, isPagination) {
         if (!($scope.searchFor) && (!searchDepartmentForm.$valid)) {
             $scope.displayValidationError = true;
             return;
@@ -221,7 +221,7 @@ function departmentsController($scope, $http) {
             });
     };
 
-    $scope.deleteDepartment = function () {
+    $scope.delete = function () {
         $scope.lastAction = 'delete';
 
         var url = $scope.url + $scope.department.id;
@@ -235,7 +235,7 @@ function departmentsController($scope, $http) {
             url: url,
             params: params
         }).success(function (data) {
-                $scope.resetDepartment();
+                $scope.resetEdition();
                 $scope.finishAjaxCallOnSuccess(data, "#deleteModal", false);
             }).error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
