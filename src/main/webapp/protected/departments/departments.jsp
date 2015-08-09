@@ -5,7 +5,7 @@
 <div class="row-fluid" ng-controller="departmentsController">
     <h2>
         <p class="text-right">
-            <a href="#searchDepartmentsModal"
+            <a href="#searchModal"
                id="headerButton"
                role="button"
                ng-show="displaySearchButton"
@@ -16,8 +16,7 @@
     </h2>
     <div>
         <div id="loadingModal" class="modal hide fade in centering"
-             role="dialog"
-             aria-labelledby="deleteDepartmentsModalLabel" aria-hidden="true">
+             role="dialog">
             <div id="divLoadingIcon" class="text-center">
                 <div class="icon-align-center loading"></div>
             </div>
@@ -60,20 +59,20 @@
                     <th scope="col">Nome</th>
                     <th scope="col"></th>
                 </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="department in page.source">
+                 </thead>
+                 <tbody>
+                 <tr ng-repeat="department in page.source">
                     <td class="tdContactsCentered">{{department.name}}</td>
                     <td class="width15">
                         <div class="text-center">
                             <input type="hidden" value="{{department.id}}"/>
-                            <a href="#updateDepartmentsModal"
+                            <a href="#updateModal"
                                ng-click="selectedDepartment(department);"
                                role="button"
                                class="btn btn-primary" data-toggle="modal">
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="#deleteDepartmentsModal"
+                            <a href="#deleteModal"
                                ng-click="selectedDepartment(department);"
                                role="button"
                                class="btn btn-primary" data-toggle="modal">
@@ -115,9 +114,9 @@
                 </button>
             </div>
         </div>
-        <div class="text-center" ng-show="displayCreateDepartmentButton">
+        <div class="text-center" ng-show="displayCreateButton">
             <br/>
-            <a href="#addDepartmentModal"
+            <a href="#addModal"
                role="button"
                ng-click="resetDepartment();"
                class="btn btn-primary"

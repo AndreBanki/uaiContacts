@@ -1,17 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<div id="addContactsModal"
+<div id="addModal"
      class="modal hide fade in centering insertAndUpdateDialogs"
-     role="dialog"
-     aria-labelledby="addContactsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="addContactsModalLabel" class="displayInLine">
+        <h3 id="addModalLabel" class="displayInLine">
             Novo contato
         </h3>
     </div>
     <div class="modal-body">
-        <form name="newContactForm" novalidate >
+        <form name="newForm" novalidate >
             <div class="pull-left">
                 <div>
                     <div class="input-append">
@@ -28,7 +26,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && newContactForm.name.$error.required">
+                                      ng-show="displayValidationError && newForm.name.$error.required">
                                         Campo obrigatório
                                 </span>
                         </label>
@@ -48,7 +46,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && newContactForm.email.$error.required">
+                                      ng-show="displayValidationError && newForm.email.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
@@ -68,7 +66,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && newContactForm.phoneNumber.$error.required">
+                                      ng-show="displayValidationError && newForm.phoneNumber.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
@@ -76,12 +74,11 @@
                 </div>
                 <input type="submit"
                        class="btn btn-inverse"
-                       ng-click="createContact(newContactForm);"
+                       ng-click="createContact(newForm);"
                        value='OK'/>
                 <button class="btn btn-inverse"
                         data-dismiss="modal"
-                        ng-click="exit('#addContactsModal');"
-                        aria-hidden="true">
+                        ng-click="exit('#addModal');">
                     Cancelar
                 </button>
             </div>
@@ -93,18 +90,16 @@
     </span>
 </div>
 
-<div id="updateContactsModal"
+<div id="updateModal"
      class="modal hide fade in centering insertAndUpdateDialogs"
-     role="dialog"
-     aria-labelledby="updateContactsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="updateContactsModalLabel" class="displayInLine">
+        <h3 id="updateModalLabel" class="displayInLine">
             Atualizar contato
         </h3>
     </div>
     <div class="modal-body">
-        <form name="updateContactForm" novalidate>
+        <form name="updateForm" novalidate>
             <input type="hidden"
                    required
                    ng-model="contact.id"
@@ -126,7 +121,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && updateContactForm.name.$error.required">
+                                      ng-show="displayValidationError && updateForm.name.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
@@ -145,7 +140,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && updateContactForm.email.$error.required">
+                                      ng-show="displayValidationError && updateForm.email.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
@@ -164,7 +159,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && updateContactForm.phoneNumber.$error.required">
+                                      ng-show="displayValidationError && updateForm.phoneNumber.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
@@ -172,12 +167,11 @@
                 </div>
                 <input type="submit"
                        class="btn btn-inverse"
-                       ng-click="updateContact(updateContactForm);"
+                       ng-click="updateContact(updateForm);"
                        value='OK'/>
                 <button class="btn btn-inverse"
                         data-dismiss="modal"
-                        ng-click="exit('#updateContactsModal');"
-                        aria-hidden="true">
+                        ng-click="exit('#updateModal');">
                     Cancelar</button>
             </div>
         </form>
@@ -188,18 +182,16 @@
     </span>
 </div>
 
-<div id="deleteContactsModal"
+<div id="deleteModal"
      class="modal hide fade in centering"
-     role="dialog"
-     aria-labelledby="searchContactsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="deleteContactsModalLabel" class="displayInLine">
+        <h3 id="deleteModalLabel" class="displayInLine">
             Excluir contato
         </h3>
     </div>
     <div class="modal-body">
-        <form name="deleteContactForm" novalidate>
+        <form name="deleteForm" novalidate>
             <p>Deseja apagar&nbsp;{{contact.name}}?</p>
 
             <input type="submit"
@@ -208,8 +200,7 @@
                    value='Sim'/>
             <button class="btn btn-inverse"
                     data-dismiss="modal"
-                    ng-click="exit('#deleteContactsModal');"
-                    aria-hidden="true">
+                    ng-click="exit('#deleteModal');">
                 Não
             </button>
         </form>
@@ -224,18 +215,16 @@
     </span>
 </div>
 
-<div id="searchContactsModal"
+<div id="searchModal"
      class="modal hide fade in centering"
-     role="dialog"
-     aria-labelledby="searchContactsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="searchContactsModalLabel" class="displayInLine">
+        <h3 id="searchModalLabel" class="displayInLine">
             Pesquisar
         </h3>
     </div>
     <div class="modal-body">
-        <form name="searchContactForm" novalidate>
+        <form name="searchForm" novalidate>
             <label>Pesquisar por</label>
 
             <div>
@@ -250,7 +239,7 @@
                 <div class="input-append displayInLine">
                     <label class="displayInLine">
                         <span class="alert alert-error"
-                              ng-show="displayValidationError && searchContactForm.searchFor.$error.required">
+                              ng-show="displayValidationError && searchForm.searchFor.$error.required">
                             Campo obrigatório
                         </span>
                     </label>
@@ -258,13 +247,12 @@
             </div>
             <input type="submit"
                    class="btn btn-inverse"
-                   ng-click="searchContact(searchContactForm, false);"
+                   ng-click="searchContact(searchForm, false);"
                    value='OK'
                     />
             <button class="btn btn-inverse"
                     data-dismiss="modal"
-                    ng-click="exit('#searchContactsModal');"
-                    aria-hidden="true">
+                    ng-click="exit('#searchModal');">
                 Cancelar
             </button>
         </form>

@@ -5,8 +5,8 @@
 <div class="row-fluid" ng-controller="contactsController">
     <h2>
         <p class="text-right">
-            <a href="#searchContactsModal"
-               id="contactsHeaderButton"
+            <a href="#searchModal"
+               id="headerButton"
                role="button"
                ng-show="displaySearchButton"
                class="btn btn-primary" data-toggle="modal">
@@ -16,8 +16,7 @@
     </h2>
     <div>
         <div id="loadingModal" class="modal hide fade in centering"
-             role="dialog"
-             aria-labelledby="deleteContactsModalLabel" aria-hidden="true">
+             role="dialog">
             <div id="divLoadingIcon" class="text-center">
                 <div class="icon-align-center loading"></div>
             </div>
@@ -71,13 +70,13 @@
                     <td class="width15">
                         <div class="text-center">
                             <input type="hidden" value="{{contact.id}}"/>
-                            <a href="#updateContactsModal"
+                            <a href="#updateModal"
                                ng-click="selectedContact(contact);"
                                role="button"
                                class="btn btn-primary" data-toggle="modal">
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="#deleteContactsModal"
+                            <a href="#deleteModal"
                                ng-click="selectedContact(contact);"
                                role="button"
                                class="btn btn-primary" data-toggle="modal">
@@ -119,9 +118,9 @@
                 </button>
             </div>
         </div>
-        <div class="text-center" ng-show="displayCreateContactButton">
+        <div class="text-center" ng-show="displayCreateButton">
             <br/>
-            <a href="#addContactsModal"
+            <a href="#addModal"
                role="button"
                ng-click="resetContact();"
                title="<spring:message code='create'/>&nbsp;<spring:message code='contact'/>"

@@ -13,7 +13,7 @@ function departmentsController($scope, $http) {
     $scope.displayValidationError = false;
     $scope.displaySearchMessage = false;
     $scope.displaySearchButton = false;
-    $scope.displayCreateDepartmentButton = false;
+    $scope.displayCreateButton = false;
 
     $scope.department = {}
 
@@ -33,7 +33,7 @@ function departmentsController($scope, $http) {
             })
             .error(function () {
                 $scope.state = 'error';
-                $scope.displayCreateDepartmentButton = false;
+                $scope.displayCreateButton = false;
             });
     }
 
@@ -48,11 +48,11 @@ function departmentsController($scope, $http) {
                 $scope.page.currentPage = $scope.page.pagesCount - 1;
             }
 
-            $scope.displayCreateDepartmentButton = true;
+            $scope.displayCreateButton = true;
             $scope.displaySearchButton = true;
         } else {
             $scope.state = 'noresult';
-            $scope.displayCreateDepartmentButton = true;
+            $scope.displayCreateButton = true;
 
             if(!$scope.searchFor){
                 $scope.displaySearchButton = false;
@@ -156,7 +156,7 @@ function departmentsController($scope, $http) {
 
         $http.post(url, $.param($scope.department), config)
             .success(function (data) {
-                $scope.finishAjaxCallOnSuccess(data, "#addDepartmentsModal", false);
+                $scope.finishAjaxCallOnSuccess(data, "#addModal", false);
             })
             .error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
@@ -186,7 +186,7 @@ function departmentsController($scope, $http) {
 
         $http.put(url, $scope.department, config)
             .success(function (data) {
-                $scope.finishAjaxCallOnSuccess(data, "#updateDepartmentsModal", false);
+                $scope.finishAjaxCallOnSuccess(data, "#updateModal", false);
             })
             .error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
@@ -213,7 +213,7 @@ function departmentsController($scope, $http) {
 
         $http.get(url, config)
             .success(function (data) {
-                $scope.finishAjaxCallOnSuccess(data, "#searchDepartmentsModal", isPagination);
+                $scope.finishAjaxCallOnSuccess(data, "#searchModal", isPagination);
                 $scope.displaySearchMessage = true;
             })
             .error(function(data, status, headers, config) {
@@ -236,7 +236,7 @@ function departmentsController($scope, $http) {
             params: params
         }).success(function (data) {
                 $scope.resetDepartment();
-                $scope.finishAjaxCallOnSuccess(data, "#deleteDepartmentsModal", false);
+                $scope.finishAjaxCallOnSuccess(data, "#deleteModal", false);
             }).error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
             });

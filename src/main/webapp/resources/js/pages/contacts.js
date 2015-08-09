@@ -13,7 +13,7 @@ function contactsController($scope, $http) {
     $scope.displayValidationError = false;
     $scope.displaySearchMessage = false;
     $scope.displaySearchButton = false;
-    $scope.displayCreateContactButton = false;
+    $scope.displayCreateButton = false;
 
     $scope.contact = {}
 
@@ -33,7 +33,7 @@ function contactsController($scope, $http) {
             })
             .error(function () {
                 $scope.state = 'error';
-                $scope.displayCreateContactButton = false;
+                $scope.displayCreateButton = false;
             });
     }
 
@@ -48,11 +48,11 @@ function contactsController($scope, $http) {
                 $scope.page.currentPage = $scope.page.pagesCount - 1;
             }
 
-            $scope.displayCreateContactButton = true;
+            $scope.displayCreateButton = true;
             $scope.displaySearchButton = true;
         } else {
             $scope.state = 'noresult';
-            $scope.displayCreateContactButton = true;
+            $scope.displayCreateButton = true;
 
             if(!$scope.searchFor){
                 $scope.displaySearchButton = false;
@@ -156,7 +156,7 @@ function contactsController($scope, $http) {
 
         $http.post(url, $.param($scope.contact), config)
             .success(function (data) {
-                $scope.finishAjaxCallOnSuccess(data, "#addContactsModal", false);
+                $scope.finishAjaxCallOnSuccess(data, "#addModal", false);
             })
             .error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
@@ -186,7 +186,7 @@ function contactsController($scope, $http) {
 
         $http.put(url, $scope.contact, config)
             .success(function (data) {
-                $scope.finishAjaxCallOnSuccess(data, "#updateContactsModal", false);
+                $scope.finishAjaxCallOnSuccess(data, "#updateModal", false);
             })
             .error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
@@ -213,7 +213,7 @@ function contactsController($scope, $http) {
 
         $http.get(url, config)
             .success(function (data) {
-                $scope.finishAjaxCallOnSuccess(data, "#searchContactsModal", isPagination);
+                $scope.finishAjaxCallOnSuccess(data, "#searchModal", isPagination);
                 $scope.displaySearchMessage = true;
             })
             .error(function(data, status, headers, config) {
@@ -236,7 +236,7 @@ function contactsController($scope, $http) {
             params: params
         }).success(function (data) {
                 $scope.resetContact();
-                $scope.finishAjaxCallOnSuccess(data, "#deleteContactsModal", false);
+                $scope.finishAjaxCallOnSuccess(data, "#deleteModal", false);
             }).error(function(data, status, headers, config) {
                 $scope.handleErrorInDialogs(status);
             });

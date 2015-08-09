@@ -1,17 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<div id="addDepartmentModal"
+<div id="addModal"
      class="modal hide fade in centering insertAndUpdateDialogs"
-     role="dialog"
-     aria-labelledby="addDepartmentsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="addDepartmentsModalLabel" class="displayInLine">
+        <h3 id="addModalLabel" class="displayInLine">
             Novo contato
         </h3>
     </div>
     <div class="modal-body">
-        <form name="newDepartmentForm" novalidate >
+        <form name="newForm" novalidate >
             <div class="pull-left">
                 <div>
                     <div class="input-append">
@@ -23,12 +21,12 @@
                                autofocus
                                ng-model="department.name"
                                name="name"
-                               placeholder="Nome do departmento"/>
+                               placeholder="Nome do departamento"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && newDepartmentForm.name.$error.required">
+                                      ng-show="displayValidationError && newForm.name.$error.required">
                                         Campo obrigatório
                                 </span>
                         </label>
@@ -36,12 +34,11 @@
                 </div>
                 <input type="submit"
                        class="btn btn-inverse"
-                       ng-click="createDepartment(newDepartmentForm);"
+                       ng-click="createDepartment(newForm);"
                        value='OK'/>
                 <button class="btn btn-inverse"
                         data-dismiss="modal"
-                        ng-click="exit('#addDepartmentsModal');"
-                        aria-hidden="true">
+                        ng-click="exit('#addModal');">
                     Cancelar
                 </button>
             </div>
@@ -53,18 +50,16 @@
     </span>
 </div>
 
-<div id="updateDepartmentsModal"
+<div id="updateModal"
      class="modal hide fade in centering insertAndUpdateDialogs"
-     role="dialog"
-     aria-labelledby="updateDepartmentsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="updateDepartmentsModalLabel" class="displayInLine">
-            Atualizar departmento
+        <h3 id="updateModalLabel" class="displayInLine">
+            Atualizar departamento
         </h3>
     </div>
     <div class="modal-body">
-        <form name="updateDepartmentForm" novalidate>
+        <form name="updateForm" novalidate>
             <input type="hidden"
                    required
                    ng-model="department.id"
@@ -86,7 +81,7 @@
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && updateDepartmentForm.name.$error.required">
+                                      ng-show="displayValidationError && updateForm.name.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
@@ -94,12 +89,11 @@
                 </div>
                 <input type="submit"
                        class="btn btn-inverse"
-                       ng-click="updateDepartment(updateDepartmentForm);"
+                       ng-click="updateDepartment(updateForm);"
                        value='OK'/>
                 <button class="btn btn-inverse"
                         data-dismiss="modal"
-                        ng-click="exit('#updateDepartmentsModal');"
-                        aria-hidden="true">
+                        ng-click="exit('#updateModal');">
                     Cancelar</button>
             </div>
         </form>
@@ -110,18 +104,16 @@
     </span>
 </div>
 
-<div id="deleteDepartmentsModal"
+<div id="deleteModal"
      class="modal hide fade in centering"
-     role="dialog"
-     aria-labelledby="searchDepartmentsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="deleteDepartmentsModalLabel" class="displayInLine">
+        <h3 id="deleteModalLabel" class="displayInLine">
             Excluir contato
         </h3>
     </div>
     <div class="modal-body">
-        <form name="deleteDepartmentForm" novalidate>
+        <form name="deleteForm" novalidate>
             <p>Deseja apagar&nbsp;{{department.name}}?</p>
 
             <input type="submit"
@@ -130,8 +122,7 @@
                    value='Sim'/>
             <button class="btn btn-inverse"
                     data-dismiss="modal"
-                    ng-click="exit('#deleteDepartmentsModal');"
-                    aria-hidden="true">
+                    ng-click="exit('#deleteModal');">
                 Não
             </button>
         </form>
@@ -146,18 +137,16 @@
     </span>
 </div>
 
-<div id="searchDepartmentsModal"
+<div id="searchModal"
      class="modal hide fade in centering"
-     role="dialog"
-     aria-labelledby="searchDepartmentsModalLabel"
-     aria-hidden="true">
+     role="dialog">
     <div class="modal-header">
-        <h3 id="searchDepartmentsModalLabel" class="displayInLine">
+        <h3 id="searchModalLabel" class="displayInLine">
             Pesquisar
         </h3>
     </div>
     <div class="modal-body">
-        <form name="searchDepartmentForm" novalidate>
+        <form name="searchForm" novalidate>
             <label>Pesquisar por</label>
 
             <div>
@@ -167,12 +156,12 @@
                            required
                            ng-model="searchFor"
                            name="searchFor"
-                           placeholder="Nome do departmento"/>
+                           placeholder="Nome do departamento"/>
                 </div>
                 <div class="input-append displayInLine">
                     <label class="displayInLine">
                         <span class="alert alert-error"
-                              ng-show="displayValidationError && searchDepartmentForm.searchFor.$error.required">
+                              ng-show="displayValidationError && searchForm.searchFor.$error.required">
                             Campo obrigatório
                         </span>
                     </label>
@@ -180,13 +169,12 @@
             </div>
             <input type="submit"
                    class="btn btn-inverse"
-                   ng-click="searchDepartment(searchDepartmentForm, false);"
+                   ng-click="searchDepartment(searchForm, false);"
                    value='OK'
                     />
             <button class="btn btn-inverse"
                     data-dismiss="modal"
-                    ng-click="exit('#searchDepartmentModal');"
-                    aria-hidden="true">
+                    ng-click="exit('#searchModal');">
                 Cancelar
             </button>
         </form>
