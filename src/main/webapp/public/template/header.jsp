@@ -8,7 +8,7 @@
             <div class="container">
                 <ul class="nav" ng-controller="LocationController">
                     <li ng-class="{'active': activeURL == 'home', '': activeURL != 'home'}" >
-                        <a href="<c:url value="/"/>"
+                        <a href="<c:url value='/'/>">
                              <p>Home</p>
                         </a>
                     </li>
@@ -17,9 +17,14 @@
                             <p>Contatos</p>
                         </a>
                     </li>
+                    <li ng-class="{'gray': activeURL == 'departments', '': activeURL != 'departments'}">
+                        <a href="<c:url value='/protected/departments'/>">
+                            <p>Departamentos</p>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li><a href="<c:url value='/logout' />" 
+                    <li><a href="<c:url value='/logout' />">
                         <p class="displayInLine">Sair&nbsp;(${user.name})</p>
                     </a></li>
                 </ul>

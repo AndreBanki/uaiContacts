@@ -16,6 +16,9 @@
     <definition name="contactsList" extends="master.page">
         <put-attribute name="body" value="/protected/contacts/contacts.jsp"/>
     </definition>
+    <definition name="departmentsList" extends="master.page">
+        <put-attribute name="body" value="/protected/departments/departments.jsp"/>
+    </definition>
     <definition name="login" extends="master.page">
         <put-attribute name="header" value=""/>
         <put-attribute name="footer" value=""/>
