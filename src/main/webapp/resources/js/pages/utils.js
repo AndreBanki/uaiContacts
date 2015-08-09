@@ -1,19 +1,39 @@
 var app = angular.module('uaiContacts', []);
 
-app.directive('myDomDirective', function () {
-	return {
-	       link: function($scope, element, attrs) {
-	         element.bind('click', function() {
-	         element.html('Clicked I am!');
-	        });
+app.directive('myInput', function () {
 
-	        element.bind('mouseenter', function() {
-	           element.css('background-color', 'yellow');
-	        });
+	var controller = ['$scope', function ($scope) {
 
-	        element.bind('mouseleave', function() {
-	           element.css('background-color', 'white');
-	        });
-	      }
-	    };
+		function init() {
+				alert("label = " + $scope.label + "required = " + $scope.required);
+				$scope.requiredFlag = ($scope.required ? 'required' : '');
+				$scope.autofocusFlag = ($scope.autofocus ? 'autofocus' : '');
+    }
+
+		init();
+  }],
+
+		template =
+		 '<div class="input-append">' +
+		 '   <label>{{label}}</label>' +
+		 '</div>' +
+		 '<div class="input-append">' +
+		 '   <input type="text"' +
+		 '   {{requiredFlag}}' +
+		 '   {{autofocusFlag}}' +
+		 '          ng-model="contact.name"' +
+		 '          name="name"' +
+		 '          placeholder="Nome do contato"/>' +
+		 '</div>';
+
+		return {
+		       restrict: "E",
+					 scope: {
+						 label: "@",
+						 required: "@",
+						 autofocus: "@"
+					 },
+					 controller: controller,
+					 template: template
+		};
 });
