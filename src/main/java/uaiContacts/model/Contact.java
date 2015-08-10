@@ -1,8 +1,13 @@
 package uaiContacts.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Contact {
@@ -14,15 +19,22 @@ public class Contact {
 	private String phoneNumber;
 	private String email;
 	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch=FetchType.EAGER )
+    @JoinTable(name="contact_department",
+        joinColumns = @JoinColumn(name="contact_id"),
+        inverseJoinColumns = @JoinColumn(name="department_id")
+    )	
+	private Department department;
+	
 	public Contact(){
-		
 	}
 	
-	public Contact(String name, String phoneNumber, String email, int id) {
+	public Contact(String name, String phoneNumber, String email, int id, Department department) {
 		super();
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
+		this.department = department;
 	}
 
     public int getId() {
@@ -56,14 +68,21 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+    public Department getDepartment() {
+		return department;
+	}
 
-    @Override
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	@Override
     public boolean equals(Object object) {
         if (object instanceof Contact){
             Contact contact = (Contact) object;
             return contact.id == id;
         }
-
         return false;
     }
 

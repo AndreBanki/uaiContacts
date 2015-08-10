@@ -37,6 +37,18 @@ function contactsController($scope, $http) {
             });
     }
 
+    $scope.getDepartmentsList = function () {
+        var url = "/uaiContacts/protected/departments/";
+        var config = {params: {page: 1}};
+        $http.get(url, config)
+            .success(function (data) {
+            	$scope.departments = data.departments;
+            })
+            .error(function () {
+                $scope.state = 'error';
+            });
+    }
+
     $scope.populateTable = function (data) {
         if (data.pagesCount > 0) {
             $scope.state = 'list';
@@ -153,7 +165,7 @@ function contactsController($scope, $http) {
         $scope.addSearchParametersIfNeeded(config, false);
 
         $scope.startDialogAjaxRequest();
-
+        
         $http.post(url, $.param($scope.contact), config)
             .success(function (data) {
                 $scope.finishAjaxCallOnSuccess(data, "#addModal", false);
@@ -249,5 +261,6 @@ function contactsController($scope, $http) {
         $scope.displaySearchMessage = false;
     }
 
+    $scope.getDepartmentsList();
     $scope.getContactList();
 }

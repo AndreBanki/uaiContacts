@@ -13,6 +13,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
+                    <th scope="col">Departamento</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -21,6 +22,7 @@
                     <td class="tdContactsCentered">{{contact.name}}</td>
                     <td class="tdContactsCentered">{{contact.email}}</td>
                     <td class="tdContactsCentered">{{contact.phoneNumber}}</td>
+                    <td class="tdContactsCentered">{{contact.department.name}}</td>
                     <td class="width15">
                         <div class="text-center">
                             <input type="hidden" value="{{contact.id}}"/>

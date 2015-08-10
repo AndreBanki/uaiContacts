@@ -72,6 +72,26 @@
                         </label>
                     </div>
                 </div>
+                <div>
+                    <div class="input-append">
+                        <label>* Departamento:</label>
+                    </div>
+                    <div class="input-append">
+                      <select id="department"
+                              ng-model="contact.department" 
+                              ng-options="department as department.name for department in departments"
+                              required>
+                      </select>
+                    </div>
+                    <div class="input-append">
+                        <label>
+                                <span class="alert alert-error"
+                                      ng-show="displayValidationError && newForm.department.$error.required">
+                                    Campo obrigatório
+                                </span>
+                        </label>
+                    </div>
+                </div>
                 <input type="submit"
                        class="btn btn-inverse"
                        ng-click="createContact(newForm);"
@@ -160,6 +180,26 @@
                         <label>
                                 <span class="alert alert-error"
                                       ng-show="displayValidationError && updateForm.phoneNumber.$error.required">
+                                    Campo obrigatório
+                                </span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-append">
+                        <label>* Departamento:</label>
+                    </div>
+                    <div class="input-append">
+                      <select id="department"
+                      		  ng-model="contact.department" 
+                              ng-options="department as department.name for department in departments"
+                              required>
+                      </select>
+                    </div>
+                    <div class="input-append">
+                        <label>
+                                <span class="alert alert-error"
+                                      ng-show="displayValidationError && newForm.department.$error.required">
                                     Campo obrigatório
                                 </span>
                         </label>
