@@ -1,12 +1,8 @@
 package uaiContacts.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,15 +11,12 @@ public class Contact {
     @Id
     @GeneratedValue
     private int id;
+    
 	private String name;
 	private String phoneNumber;
 	private String email;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch=FetchType.EAGER )
-    @JoinTable(name="contact_department",
-        joinColumns = @JoinColumn(name="contact_id"),
-        inverseJoinColumns = @JoinColumn(name="department_id")
-    )	
+	@ManyToOne
 	private Department department;
 	
 	public Contact(){
