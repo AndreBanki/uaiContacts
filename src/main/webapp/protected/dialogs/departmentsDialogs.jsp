@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div id="addModal"
      class="modal hide fade in centering insertAndUpdateDialogs"
      role="dialog">
@@ -46,7 +45,7 @@
     </div>
     <span class="alert alert-error dialogErrorMessage"
           ng-show="errorOnSubmit">
-        <spring:message code="request.error"/>
+        Erro ao processar a solicitação.
     </span>
 </div>
 
@@ -100,6 +99,6 @@
     </div>
     <span class="alert alert-error dialogErrorMessage"
           ng-show="errorOnSubmit">
-        <spring:message code="request.error"/>
+        Erro ao processar a solicitação.
     </span>
 </div>

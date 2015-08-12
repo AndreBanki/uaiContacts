@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div id="searchModal"
      class="modal hide fade in centering"
      role="dialog">
@@ -44,6 +43,6 @@
     </div>
     <span class="alert alert-error dialogErrorMessage"
           ng-show="errorOnSubmit">
-        <spring:message code="request.error"/>
+        Erro ao processar a requisição.
     </span>
 </div>

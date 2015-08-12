@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="text-center">
     <button href="#" class="btn btn-primary"
             ng-class="{'btn-primary': page.currentPage != 0, 'disabled': page.currentPage == 0}"

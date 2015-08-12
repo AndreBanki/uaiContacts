@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div id="loadingModal" class="modal hide fade in centering"
      role="dialog">
     <div id="divLoadingIcon" class="text-center">
@@ -26,9 +25,9 @@
 </div>
 
 <div ng-class="{'alert alert-block alert-error': state == 'error', 'none': state != 'error'}">
-    <h4><i class="icon-info-sign"></i> <spring:message code="error.generic.header"/></h4><br/>
+    <h4><i class="icon-info-sign"></i> Erro</h4><br/>
 
-    <p><spring:message code="error.generic.text"/></p>
+    <p>Erro ao processar a requisição.</p>
 </div>
 
 <div class="alert alert-info" ng-show="state == 'noresult'">

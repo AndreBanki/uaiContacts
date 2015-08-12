@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="pt-BR" id="ng-app" ng-app="uaiContacts">
 <head>
-        <title><spring:message  code="project.title" /></title>
+        <title>Cadastro de Contatos</title>
         <link href="<c:url value='/resources/css/bootstrap.min.css'  />" rel="stylesheet"/>
         <link href="<c:url value='/resources/css/bootstrap-responsive.min.css'  />" rel="stylesheet"/>
         <link href="<c:url value='/resources/css/project_style.css'  />" rel="stylesheet"/>
