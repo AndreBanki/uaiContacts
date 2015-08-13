@@ -160,13 +160,13 @@ function contactsController($scope, $http) {
 
         var url = $scope.url;
 
-        var config = {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}};
+        var config = {headers: {'Content-Type': 'application/json; charset=UTF-8'}};
 
         $scope.addSearchParametersIfNeeded(config, false);
 
         $scope.startDialogAjaxRequest();
         
-        $http.post(url, $.param($scope.contact), config)
+        $http.post(url, JSON.stringify($scope.contact), config)
             .success(function (data) {
                 $scope.finishAjaxCallOnSuccess(data, "#addModal", false);
             })

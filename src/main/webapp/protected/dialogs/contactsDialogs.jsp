@@ -190,8 +190,8 @@
                     </div>
                     <div class="input-append">
                       <select id="department"
-                      		  ng-model="contact.department" 
-                              ng-options="department as department.name for department in departments"
+                      		  ng-model="contact.department.id" 
+                              ng-options="department.id as department.name for department in departments"
                               required>
                       </select>
                     </div>
